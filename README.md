@@ -1,11 +1,10 @@
-
 ![dePinhoLP](https://github.com/ICEI-PUC-Minas-PPLES-TI/plf-es-2024-1-ti3-8966100-de-pinho-multimidias/assets/119077937/657b04df-43b5-4973-8d3c-63e1c01cd9dd)
 
-# DePinho Multimídias
+# DePinho Multimedia
 
-DePinho multimídias é um site para facilitar a compra de novas multimídias para os clientes do YouTuber Gabriel De Pinho. O site apresentará a opção de filtragem dos produtos por meio do carro do cliente, mostrando apenas os modelos de multimídia compatíveis com o modelo do veículo.
+DePinho Multimedia is a website designed to make it easier for customers of YouTuber Gabriel De Pinho to purchase new multimedia devices. The site offers product filtering options based on the customer’s car, displaying only the multimedia models compatible with their vehicle.
 
-## Alunos integrantes da equipe
+## Team Members
 
 * Arthur Ferreira Costa
 * Gabriel Ferreira Amaral
@@ -13,100 +12,99 @@ DePinho multimídias é um site para facilitar a compra de novas multimídias pa
 * Pedro Henrique Braga de Castro
 * Renato Cazzoletti
 
-## Professores responsáveis
+## Supervising Professors
 
 * Eveline Alonso Veloso
 * Juliana Amaral Baroni de Carvalho
 
-## Instruções de utilização
+## Usage Instructions
 
-### Pré-requisitos
+### Prerequisites
 
-Certifique-se de ter os seguintes softwares instalados em sua máquina:
+Make sure you have the following software installed on your machine:
 
-- [Java Development Kit (JDK)](https://www.oracle.com/java/technologies/javase-downloads.html)
-- [Apache Maven](https://maven.apache.org/)
-- [MySQL](https://www.mysql.com/)
+* [Java Development Kit (JDK)](https://www.oracle.com/java/technologies/javase-downloads.html)
+* [Apache Maven](https://maven.apache.org/)
+* [MySQL](https://www.mysql.com/)
 
-### Passo a passo para instalação e execução
+### Step-by-step Installation and Execution
 
-#### 1. Clonar o repositório
+#### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/ICEI-PUC-Minas-PPLES-TI/plf-es-2024-1-ti3-8966100-de-pinho-multimidias.git
 cd plf-es-2024-1-ti3-8966100-de-pinho-multimidias
 ```
 
-#### 2. Configurar o banco de dados
+#### 2. Configure the Database
 
-- Configure as credenciais do seus banco de dados no arquivo `application.properties` localizado em `src/main/resources`:
+* Set your database credentials in the `application.properties` file located in `src/main/resources`:
+
   ```properties
-  spring.datasource.username=seu-usuario
-  spring.datasource.password=sua-senha
+  spring.datasource.username=your-username
+  spring.datasource.password=your-password
   ```
 
-#### 3. Atualizar a configuração do CORS
+#### 3. Update CORS Configuration
 
-No arquivo de configuração de CORS, atualize a configuração para permitir o frontend rodando no localhost:8081:
+In the CORS configuration file, update the settings to allow the frontend running on localhost:8081:
 
 ```java
     .allowedOrigins("http://127.0.0.1:8081")
 ```
 
-#### 4. Instalar dependências
+#### 4. Install Dependencies
 
-No diretório raiz do projeto, execute:
+In the project root directory, run:
 
 ```bash
 mvn clean install
 ```
 
-#### 5. Executar a aplicação
+#### 5. Run the Application
 
-Ainda no diretório raiz, execute:
+Still in the root directory, run:
 
 ```bash
 mvn spring-boot:run
 ```
 
-A aplicação estará rodando em [http://localhost:8080](http://localhost:8080).
+The application will be running at [http://localhost:8080](http://localhost:8080).
 
-### Utilização
+### Usage
 
-1. **Registro e Login:**
-   - Registre-se como um novo usuário ou faça login com suas credenciais existentes.
+1. **Register and Login:**
 
-2. **Navegação de Produtos:**
-   - Utilize o filtro para selecionar o modelo do seu veículo e veja os produtos compatíveis.
+   * Register as a new user or log in with your existing credentials.
 
-3. **Adicionar ao Carrinho:**
-   - Adicione os produtos desejados ao carrinho de compras.
+2. **Browse Products:**
 
-4. **Finalizar Compra:**
-   - Complete as informações necessárias para o pagamento e finalize a compra.
+   * Use the filter to select your vehicle model and view compatible products.
 
-### Login como Administrador
+3. **Add to Cart:**
 
-Para fazer login como administrador, você deve fazer a requisição através do Postman:
+   * Add desired products to your shopping cart.
 
-1. **Abra o Postman e crie uma nova requisição POST.**
+4. **Checkout:**
+
+   * Fill in the required payment details and complete your purchase.
+
+### Admin Login
+
+To log in as an administrator, you must send a request via Postman:
+
+1. **Open Postman and create a new POST request.**
 2. **URL:** `http://localhost:8080/usuario/register`
-3. **Body:** Selecione a opção `raw` e escolha o formato `JSON`. Insira as credenciais de administrador no seguinte formato:
-    ```json
-        {
-        
-        "email": "teste@123412",
-        
-        "senha": "luisa1234",
-        
-        "primeiroNome": "Gabriel",
-        
-        "ultimoNome": "Enzo",
-        
-        "contato": "(37) 12345-6789",
-        
-        "role": "ADMINISTRADOR"
-        
-        }
-    ```
-4. **Envie a requisição.** Ao fazer login com esse usuário, no LocalStorage do seu navegador haverá um token de autenticação que deverá ser usado nas requisições subsequentes para acessar funcionalidades administrativas.
+3. **Body:** Select `raw` and choose `JSON` format. Insert the admin credentials as follows:
+
+   ```json
+       {
+         "email": "teste@123412",
+         "senha": "luisa1234",
+         "primeiroNome": "Gabriel",
+         "ultimoNome": "Enzo",
+         "contato": "(37) 12345-6789",
+         "role": "ADMINISTRADOR"
+       }
+   ```
+4. **Send the request.** After logging in with this user, a token will be generated in your browser’s LocalStorage. This token must be used in subsequent requests to access administrative features.
